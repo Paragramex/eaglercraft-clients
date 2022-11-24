@@ -1,4 +1,6 @@
 <?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+require($path.'/system/logging.php');
 class RegisterUser{
 	// Class properties
 	private $username;

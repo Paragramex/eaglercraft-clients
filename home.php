@@ -13,16 +13,18 @@ $_SESSION['pagetitle'] = "Home";
 			$name = json_decode(file_get_contents($path.'/db/site.json'));
 			echo htmlspecialchars_decode($name->aboutsite);
 		} ?></p>
-		<h5>What is EaglerCraft?</h5>
+	<div class="visitcounter"><h3 style="color:#86A8E7;">Site Visits: <?php $content = file_get_contents($path.'/db/visitcount.txt');
+echo $content; ?></h3></div>
+		<h5>What is EaglerCraft?</h5> 
     <p> Eaglercraft is a 1.5.2 minecraft javascript runtime made by LAX1DUDE</p>
     <h3> Disclaimer: </h3>
     <p><?php if (file_exists($path.'/db/site.json')) {
 			$name = json_decode(file_get_contents($path.'/db/site.json'));
 			echo htmlspecialchars_decode($name->disclaimer);
 		} ?></p>
-    <div class="fakeimg" onclick="location.href = 'https://minekhan.thingmaker.repl.co/';" style="height:60px;">MineKhan 1.0.5 (a clone of minecraft thats also fun)</div><br>
-    <div class="fakeimg" onclick="location.href = '/account.php';" style="height:60px;">View Our Collection</div><br>
-    <div class="fakeimg" onclick="location.href = '/';" style="height:60px;">Submit a Client Here! [Coming Soon]</div>
+    <div class="extrabuttons" onclick="location.href = 'https://minekhan.thingmaker.repl.co/';" style="height:60px;">MineKhan 1.0.5 (a clone of minecraft thats also fun)</div><br>
+    <div class="extrabuttons" onclick="location.href = '/login.php';" style="height:60px;">View Our Collection</div><br>
+    <div class="extrabuttons" onclick="location.href = '/';" style="height:60px;">Submit a Client Here! [Coming Soon]</div>
   </div>
   <div class="main">
     <!--<h3>TITLE HEADING</h3>

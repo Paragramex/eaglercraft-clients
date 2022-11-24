@@ -9,13 +9,12 @@ require_once($path.'/system/head.php');
 require_once($path.'/admin/lib.php');
 if(!isset($_SESSION['user'])){
 	$_SESSION['pagetitle'] = "Home";
-		echo "<script>window.location.replace('/home.php')</script>";
+		echo "<script>window.location.replace('home.php')</script>";
 		exit();
 	}
 	?>
-<style>
-
-	form, .content{
+   <style>
+	form, .content {
 	max-width: 800px;
 	min-height: 500px;
 	margin: 100px auto;
@@ -24,7 +23,6 @@ if(!isset($_SESSION['user'])){
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 	background-color: white;
 }
-	
 </style>
   <div class="main" style="background-image: radial-gradient(circle, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);">
 	
