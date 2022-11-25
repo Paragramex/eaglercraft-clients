@@ -1,8 +1,7 @@
 
 <?php
-$path = $_SERVER['DOCUMENT_ROOT'];
 // Open log file
-$logfile = $path."/db/visits.txt";
+$logfile = "./db/visits.txt";
 
 if (file_exists($logfile)) {
     
