@@ -1,4 +1,6 @@
 <?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+require($path.'/system/logging.php');
 class LoginUser{
 	// class properties
 	private $username;
@@ -27,6 +29,7 @@ class LoginUser{
 					$_SESSION['user'] = $this->username;
 					$_SESSION['mail'] = $this->email;
 					$_SESSION['password'] = $user['password'];
+					eventlogger("<p style='color:green;'>Login</p>", "User: " . $_SESSION['user'] . " logged in.");
 					header("location: account.php"); exit();
 				}
 			}

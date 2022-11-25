@@ -1,14 +1,31 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path.'/system/head.php');
+require_once($path.'/admin/lib.php');
 if(!isset($_SESSION['user'])){
 	$_SESSION['pagetitle'] = "Home";
-		echo "<script>window.location.replace('home.php')</script>";
+		echo "<script>window.location.replace($path'/home.php')</script>";
 		exit();
 	}
+
+
+//work on later :/
+	$userdb = json_decode(file_get_contents($path.'/db/users.json'));
+if (isset($_POST['userdelete'])) {
+	$userdb->$username == $_POST["username"];
+	$userdb->$email == $_POST["email"];
+	$userdb->$password == $_POST["password"];
+			unset($userdb->$username);
+			unset($userdb->$email);
+			unset($userdb->$password);
+$status = fwrite(fopen($path.'/db/users.json', 'w+'),
+json_encode($userdb));
+	}
+
+	
 	?>
 
-  <div class="main" style="background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);">
+  <div class="main">
 	
 <div class="content">
 		<header>
@@ -38,7 +55,7 @@ $decoded_data = json_decode($users, true);
 echo "<tr>
     <th>User</th>
     <th>Email</th>
-    <th>Actions</th>
+    <!--<th>Actions</th>-->
   </tr>";
 
 //Print the JSON data
@@ -49,9 +66,20 @@ $username = $user['username'];
 
 $email = $user['email'];
 
-echo " <tr>
+$pass = $user['password'];
+
+$self = $_SERVER['PHP_SELF'];
+	
+echo "
+<tr>
+	<form action=".$_SERVER['PHP_SELF']." method='post'>
     <td>$username</td>
     <td>$email</td>
+<input style='position:absolute;display: none' type='text' name='username' value='$username'>
+<input style='position:absolute;display: none' type='text' name='email' value='$email'>
+<input style='position:absolute;display: none' type='text' name='password' value='$pass'>
+		<!--<td><input type='submit' name='userdelete' value='Delete'></td>-->
+</form>
   </tr>";
 
 }
