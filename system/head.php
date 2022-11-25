@@ -1,7 +1,5 @@
 <?php session_start(); 
-require(dirname(__FILE__) . '/logging.php');
 if(isset($_GET['logout'])){
-		eventlogger("<p style='color:red;'>Logout</p>", "User: " . $_SESSION['user'] . " logged out.");
 		unset($_SESSION['user']);
 		unset($_SESSION['password']);
 		unset($_SESSION['mail']);
@@ -12,8 +10,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 if (isset($_SESSION['user'])){
 	setcookie("verified", "true", time() + (86400), "/");
 		}
-require(dirname(__FILE__) . '/scripts.php');
 
+require(dirname(__FILE__) . '/scripts.php');
 ?>
 <head>
 <title><?php if (file_exists($path.'/db/site.json')) {
@@ -23,7 +21,6 @@ require(dirname(__FILE__) . '/scripts.php');
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="icon" type="image/x-icon" href="<?php if (file_exists($path.'/db/site.json')) {
 			$image = json_decode(file_get_contents($path.'/db/site.json'));
 			echo htmlspecialchars($image->favicon);
@@ -84,7 +81,6 @@ Register</a>
 </div>
 
 <!-- Alerts above this line -->
-
 <?php
 require(dirname(__FILE__) . '/scripts.php');
 ?>
