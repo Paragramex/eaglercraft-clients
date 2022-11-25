@@ -7,7 +7,7 @@ setTimeout( function() {
 // test if its coming from the site
 if (document.referrer.match(/^https?:\/\/([^\/]+\.)?paragram\.repl\.co(\/|$)/i)) {
 	
-	// dont touch this kadin 😠
+	// dont touch this stupid!!! 😠
 	if (document.cookie.indexOf("verified=") < 0) {
     alert("NOT LOGGED IN, ERROR 401");
     location.href = "/system/validate.php?client=" + window.location.href;

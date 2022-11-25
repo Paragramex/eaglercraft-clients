@@ -1,7 +1,7 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path.'/system/head.php');
-$config = json_decode(file_get_contents($path.'/db/site.json'));
+$servers = json_decode(file_get_contents($path.'/db/servers2.json'));
 ?>
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
@@ -31,7 +31,7 @@ if(!isset($_SESSION['user'])){
 			<h2>Admin Panel<h2>
 			<a href="?logout">Log out</a>
 			</header>
-		<main>
+		<main> 
 </main>
 				<table>
   <tr>
@@ -43,8 +43,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="sitetitle" style="display:block;max-width:95%;"><?php 
-	if (isset($config->sitetitle)) {
-		echo htmlspecialchars($config->sitetitle);
+	if (isset($servers->sitetitle)) {
+		echo htmlspecialchars($servers->sitetitle);
 	}
 ?></textarea>
 <input type="submit" value="Save" /></td>
@@ -55,8 +55,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="favicon" style="display:block;max-width:95%;"><?php 
-	if (isset($config->favicon)) {
-		echo htmlspecialchars($config->favicon);
+	if (isset($servers->favicon)) {
+		echo htmlspecialchars($servers->favicon);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
@@ -67,8 +67,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="footer" style="display:block;max-width:95%;"><?php 
-	if (isset($config->footer)) {
-		echo htmlspecialchars($config->footer);
+	if (isset($servers->footer)) {
+		echo htmlspecialchars($servers->footer);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
@@ -79,8 +79,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="headtitle" style="display:block;max-width:95%;"><?php 
-	if (isset($config->headtitle)) {
-		echo htmlspecialchars($config->headtitle);
+	if (isset($servers->headtitle)) {
+		echo htmlspecialchars($servers->headtitle);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
@@ -91,8 +91,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="headfooter" style="display:block;max-width:95%;"><?php 
-	if (isset($config->headfooter)) {
-		echo htmlspecialchars($config->headfooter);
+	if (isset($servers->headfooter)) {
+		echo htmlspecialchars($servers->headfooter);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
@@ -103,8 +103,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="aboutsite" style="display:block;max-width:95%;"><?php 
-	if (isset($config->aboutsite)) {
-		echo htmlspecialchars($config->aboutsite);
+	if (isset($servers->aboutsite)) {
+		echo htmlspecialchars($servers->aboutsite);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
@@ -115,8 +115,8 @@ if(!isset($_SESSION['user'])){
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="disclaimer" style="display:block;max-width:95%;"><?php 
-	if (isset($config->disclaimer)) {
-		echo htmlspecialchars($config->disclaimer);
+	if (isset($servers->disclaimer)) {
+		echo htmlspecialchars($servers->disclaimer);
 	}
 ?></textarea>
 <input type="submit" value="Save"/></td>
