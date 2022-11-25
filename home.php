@@ -22,9 +22,15 @@ echo $content; ?></h3></div>
 			$name = json_decode(file_get_contents($path.'/db/site.json'));
 			echo htmlspecialchars_decode($name->disclaimer);
 		} ?></p>
+
+    <a href="https://minekhan.thingmaker.repl.co/"><button class="extrabuttons button">MineKhan 1.0.5 (a clone of minecraft thats also fun)</button></a>
+    <a href="/login.php"><button class="extrabuttons button">View Our Collection</button></a>
+    <a href="/"><button class="extrabuttons button">Submit a Client Here! [Coming Soon]</button></a>
+
+<!--     
     <div class="extrabuttons" onclick="location.href = 'https://minekhan.thingmaker.repl.co/';" style="height:60px;">MineKhan 1.0.5 (a clone of minecraft thats also fun)</div><br>
     <div class="extrabuttons" onclick="location.href = '/login.php';" style="height:60px;">View Our Collection</div><br>
-    <div class="extrabuttons" onclick="location.href = '/';" style="height:60px;">Submit a Client Here! [Coming Soon]</div>
+    <div class="extrabuttons" onclick="location.href = '/';" style="height:60px;">Submit a Client Here! [Coming Soon]</div> -->
   </div>
   <div class="main">
     <!--<h3>TITLE HEADING</h3>
