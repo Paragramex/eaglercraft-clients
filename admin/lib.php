@@ -55,4 +55,16 @@ if (isset($_POST['disclaimer'])) {
 			unset($config->disclaimer);
 		$status = fwrite(fopen($path.'/db/site.json', 'w+'), json_encode($config));
 	}
+
+$userdb = json_decode(file_get_contents($path.'/db/users.json'));
+if (isset($_POST['userdelete'])) {
+	$userdb->$username == $_POST["username"];
+	$userdb->$email == $_POST["email"];
+	$userdb->$password == $_POST["password"];
+			unset($userdb->$username);
+			unset($userdb->$email);
+			unset($userdb->$password);
+$status = fwrite(fopen($path.'/db/users.json', 'w+'), json_encode($userdb));
+	}
+
 ?>

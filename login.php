@@ -3,7 +3,6 @@
 	if(isset($_POST['submit'])){
 		$user = new LoginUser($_POST['username'], $_POST['email'],$_POST['password']);
 	}
-	$_SESSION['pagetitle'] = "Login";
 
 ?>
 <!DOCTYPE html>
