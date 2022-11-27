@@ -1,6 +1,5 @@
 <script>
 	//disabled links section
-	
 window.onload=function(){
 document.body.addEventListener('click', function (event) {
   // filter out clicks on any other elements
@@ -22,6 +21,27 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
+//fullscreen thing
+	function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+
+function makeFullScreen() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.body;
+    requestFullScreen(elem);
+}
+	
  
 
 /*

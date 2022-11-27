@@ -1,7 +1,6 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path.'/system/head.php');
-$_SESSION['pagetitle'] = "Home";
 ?>
 
 
@@ -36,13 +35,13 @@ echo $content; ?></h3></div>
     <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     <br>-->
 <h2>Play Vanilla 1.5.2 MC, NO Stellar Account Needed!</h2>
-<iframe src="/clients/vanilla.html" style="top:0; left:0; bottom:0; right:0; width:100%; height:80%; border:none; margin:0; padding:1%; overflow:hidden;">
+<!--<button onclick="makeFullScreen()" class="extrabuttons button">Full Screen</button>-->
+<iframe src="/clients/vanilla.html" id="openframe" style="top:0; left:0; bottom:0; right:0; width:100%; height:71%; border:none; margin:0; padding:1%; overflow:hidden;">
     Your browser doesn't support iframes
 </iframe>
 		<br>
 		    <a href="/login.php"><button class="extrabuttons button">Browse all the clients</button></a>
   </div>
 </div>
-
 <?php require_once($path.'/system/foot.php');  ?>
 

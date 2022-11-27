@@ -3,6 +3,12 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 include $path.'/system/logging.php';
 ?>
 <title>Redirecting...</title>
+<meta charset="UTF-8">
+	<meta name="title" content="Stellar | Eaglercraft Client Archive">
+  <meta name="description" content="This site is aimed to be a collection of every client for EaglerCraft.">
+  <meta name="keywords" content="Eaglercraft, paragram, eagler, hacks, hax, LAX1DUDE, FuchsiaX, ayuncraft, codercraft, Resent, Precision, minecraft, 1.5.2">
+  <meta name="author" content="paragram">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="hero-image">
   <div class="hero-text">
     <h1>GET RICKED LOSER 🤣</h1>
