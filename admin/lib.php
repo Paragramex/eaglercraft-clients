@@ -67,4 +67,14 @@ if (isset($_POST['userdelete'])) {
 $status = fwrite(fopen($path.'/db/users.json', 'w+'), json_encode($userdb));
 	}
 
+
+
+if (isset($_POST['aboutlogin'])) {
+		$config->aboutlogin = $_POST['aboutlogin'];
+		if ($_POST['aboutlogin'] == '') 
+			unset($config->aboutlogin);
+		$status = fwrite(fopen($path.'/db/site.json', 'w+'), json_encode($config));
+	}
+
+
 ?>

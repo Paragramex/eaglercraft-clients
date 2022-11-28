@@ -114,6 +114,18 @@ if(!isset($_SESSION['user'])){
 <input type="submit" value="Save"/></td>
 				</form>
 			</tr>
+<tr>
+		<td>Edit About Login</td>
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+		<td><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' name="aboutlogin" style="display:block;max-width:95%;"><?php 
+	if (isset($config->aboutlogin)) {
+		echo htmlspecialchars($config->aboutlogin);
+	}
+?></textarea>
+<input type="submit" value="Save"/></td>
+				</form>
+			</tr>
 </table>
 </div>
 </div>

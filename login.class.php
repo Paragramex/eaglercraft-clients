@@ -1,6 +1,5 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
-require($path.'/system/logging.php');
 class LoginUser{
 	// class properties
 	private $username;
@@ -9,12 +8,12 @@ class LoginUser{
 	public $success;
 	private $storage = "./db/users.json";
 	private $stored_users;
-	private $email;
+	# private $email;
 
 	// class methods
-	public function __construct($username, $email,$password){
+	public function __construct($username, /*$email,*/ $password){
 		$this->username = $username;
-		$this->email = $email;
+		# $this->email = $email;
 		$this->password = $password;
 		$this->stored_users = json_decode(file_get_contents($this->storage), true);
 		$this->login();
@@ -23,18 +22,18 @@ class LoginUser{
 
 	private function login(){
 		foreach ($this->stored_users as $user) {
-			if($user['username'] == $this->username && $user['email'] == $this->email){
+			if($user['username'] == $this->username /* && $user['email'] == $this->email*/){
 				if(password_verify($this->password, $user['password'])){
 					session_start();
 					$_SESSION['user'] = $this->username;
-					$_SESSION['mail'] = $this->email;
+					# $_SESSION['mail'] = $this->email;
 					$_SESSION['password'] = $user['password'];
 					eventlogger("<p style='color:green;'>Login</p>", "User: " . $_SESSION['user'] . " logged in.");
 					if (isset($_GET['redirect'])){
 						$redir = $_GET['redirect'];
-						header("location: /system/portal.php?redirect=$redir"); exit();
+						echo "<script> window.location.replace('/system/portal.php?redirect=$redir')</script>"; exit();
 					} else {
-					header("location: account.php"); exit();
+					echo "<script> window.location.replace('/account.php')</script>"; exit();
 					}
 				}
 			}

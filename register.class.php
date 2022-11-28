@@ -1,6 +1,5 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
-require($path.'/system/logging.php');
 class RegisterUser{
 	// Class properties
 	private $username;
@@ -14,13 +13,13 @@ class RegisterUser{
 	private $email;
 
 
-	public function __construct($username, $email, $password){
+	public function __construct($username, /* $email,*/ $password){
 		$this->username = trim($this->username);
 		$this->username = filter_var($username, FILTER_SANITIZE_STRING);
 
 
-	$this->email = trim($this->email);
-	$this->email = filter_var($email, FILTER_SANITIZE_STRING);
+	# $this->email = trim($this->email);
+	# $this->email = filter_var($email, FILTER_SANITIZE_STRING);
 
 		
 
@@ -31,7 +30,7 @@ class RegisterUser{
 
 		$this->new_user = [
 			"username" => $this->username,
-			"email" => $this->email,
+		# "email" => $this->email,
 			"password" => $this->encrypted_password,
 		];
 
@@ -42,7 +41,7 @@ class RegisterUser{
 
 
 	private function checkFieldValues(){
-		if(empty($this->username) || empty($this->email) || empty($this->raw_password)){
+		if(empty($this->username) /*|| empty($this->email) */ || empty($this->raw_password)){
 			$this->error = "All fields are required.";
 			return false;
 		}else{
@@ -61,7 +60,7 @@ class RegisterUser{
 		return false;
 	}
 
-	private function emailExists(){
+	/*private function emailExists(){
 		foreach($this->stored_users as $user){
 			if($this->email == $user['email']){
 				$this->error = "Email account already used: <a href='login.php'>Login?</a>";
@@ -70,10 +69,10 @@ class RegisterUser{
 		}
 		return false;
 	}
-
+*/
 
 	private function insertUser(){
-		if($this->usernameExists() == FALSE && $this->emailExists() == FALSE){
+		if($this->usernameExists() == FALSE /* && $this->emailExists() == FALSE*/){
 			array_push($this->stored_users, $this->new_user);
 			if(file_put_contents($this->storage, json_encode($this->stored_users, JSON_PRETTY_PRINT))){
 				return $this->success = "Your registration was successful: <a href='login.php'>Continue?</a>";

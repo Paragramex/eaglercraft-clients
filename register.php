@@ -1,39 +1,46 @@
-<?php require("register.class.php") ?>
-<?php
-	if(isset($_POST['submit'])){
-		$user = new RegisterUser($_POST['username'], $_POST['email'], $_POST['password']);
+<?php 
+$path = $_SERVER['DOCUMENT_ROOT'];
+require("register.class.php");
+require_once($path.'/system/head.php');
+		if(isset($_POST['submit'])){
+		$user = new RegisterUser($_POST['username'], /* $_POST['email'], */ $_POST['password']);
 	}
-	$_SESSION['pagetitle'] = "Registration";
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <link rel="stylesheet" href="/assets/LoginRegister.css">
-	<title>Register form</title>
-</head>
-<body>
-
-	<form action="" method="post" enctype="multipart/form-data" autocomplete="off">
-		<h2>Register form</h2>
-		<h4>All fields are <span>required</span></h4>
-
+<div class="row">
+  <div class="side">
+    <h2>About our login</h2>
+    <h5>What its for:</h5>
+		<p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->aboutlogin);
+		} ?></p>
+		<br>
+    <h3> Disclaimer: </h3>
+    <p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->disclaimer);
+		} ?></p>
+<link rel="stylesheet" href="/assets/LoginRegister.css">
+    <a href="/login.php"><button class="extrabuttons button">Login to an Account</button></a>
+	<a href="/extras/socials.php"><button class="extrabuttons button">Use Our Social Login Button [WIP]</button></a>
+  </div>
+  <div class="main">
+<h2>Register</h2>
+		<form action="" method="post" enctype="multipart/form-data" autocomplete="off">
 		<label>Username</label>
-		<input type="text" name="username">
-
-		<label>Email</label>
-		<input type="email" name="email">
-
+		<input type="text" name="username" required>
+		<!--<label>Email</label>
+		<input type="email" name="email" required>-->
 		<label>Password</label>
-		<input type="text" name="password">
-
-		<button type="submit" name="submit">Register</button>
-
+		<input type="text" name="password" required>
+		<button class="button extrabuttons" type="submit" name="submit">Log in</button>
 		<p class="error"><?php echo @$user->error ?></p>
 		<p class="success"><?php echo @$user->success ?></p>
+			<center><p>Sorry for the crappy login, some kid was complaining about the login system and so I changed it to shut him up</p></center>
 	</form>
 
-</body>
-</html>
+		
+  </div>
+</div>
+<?php require_once($path.'/system/foot.php');  ?>
+
