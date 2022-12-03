@@ -424,3 +424,7 @@ iframe.fullScreen {
 		padding: 0%;
 	
 }
+
+::placeholder {
+   text-align: center; 
+}

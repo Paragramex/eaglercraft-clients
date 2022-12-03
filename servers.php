@@ -1,7 +1,6 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path.'/system/head.php');
-$_SESSION['pagetitle'] = "Servers";
 	?>
   <div class="main" >
 <div class="content">

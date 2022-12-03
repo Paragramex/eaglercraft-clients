@@ -6,10 +6,7 @@ require_once($path.'/system/head.php');
   <div class="side">
     <h2>About the Social Login</h2>
     <h5>How to use:</h5>
-		<p><?php if (file_exists($path.'/db/site.json')) {
-			$name = json_decode(file_get_contents($path.'/db/site.json'));
-			echo htmlspecialchars_decode($name->usagesocials);
-		} ?></p>
+		<p>Use the form to generate a button with the url in it. You may change the butoon but leave the url alone. Once a user logs in, they will be redirected to a file name ok.php, if they cancel the login, they go to cancel.php. I will provide example files to parse returned data soon. [WIP]</p>
 		<br>
     <h3> Disclaimer: </h3>
     <p><?php if (file_exists($path.'/db/site.json')) {
@@ -73,7 +70,7 @@ const destination = document.getElementById('destination');
 const button = document.getElementById('generate');
 const encodeDecodeAppend = () => {
 	let dat = wrapper.innerHTML;
-	let data = "https://" + wrapper.innerHTML + "/";
+	let data = "https://" + dat + "/";
   const encoded = btoa(data); //encoded HTML
   const decoded = atob(encoded); // decoded HTML
   destination.innerHTML = encoded;

@@ -6,7 +6,6 @@ if(!isset($_SESSION['user'])){
 		echo "<script>window.location.replace('home.php')</script>";
 		exit();
 	}
-$_SESSION['pagetitle'] = "Account Panel";
 	?>
 
   <div class="main">
@@ -19,12 +18,12 @@ $_SESSION['pagetitle'] = "Account Panel";
 		<main>
 			<h3>User Info</h3>
 			<p>Username: <?php echo $_SESSION['user'] ?></p>
-			<p>Contact: <?php echo $_SESSION['mail'] ?></p>
+			<!--<p>Contact: <<?php echo $_SESSION['mail'] ?></p>-->
 			</p>
 		</main>
 				<hr class="rounded">
 				<h3>Client list:</h3>
-				
+				<p>more coming soon...</p>
 <?php
 if(!isset($_COOKIE['verified'])) {
   echo "Verification status is: [false]<br>";
@@ -41,48 +40,39 @@ if(!isset($_COOKIE['verified'])) {
   </tr>
   <tr>
     <td><a href="/clients/Kerosene.html">Kerosene</a></td>
-    <td>HACKED</td>
 		<td><kbd>y</kbd></td>
   </tr>
 	<tr>
     <td><a href="/clients/ayuncraft/index.html">AyunCraft Client</a></td>
-    <td>HACKED</td>
 		<td><kbd></kbd></td>
   </tr>
 	<tr>
     <td><a href="/clients/fuchsiaxghostwithaltmanager.html" >Fuchsiax Ghost Client + Alts</a></td>
-    <td>HACKED</td>
 		<td><kbd>n</kbd></td>
   </tr>
 		<tr>
     <td><a href="/clients/resentpvp.html">Resent PVP Client</a></td>
-    <td>LEGIT</td>
 		<td><kbd>K</kbd></td>
   </tr>
 					
 		<tr>
-    <td class="isDisabled"><a href="" aria-disabled="true">Precision Client BETA</a></td>
-    <td>HACKED</td>
+    <td class="isDisabled"><a href="/clients/precisionclientbeta.html" aria-disabled="true">Precision Client BETA</a></td>
 		<td><kbd></kbd></td>
   </tr>
 		<tr>
     <td><a href="/clients/nitclient2.html">NitClient 2.0</a></td>
-    <td>HACKED</td>
 		<td><kbd>p</kbd></td>
   </tr>
 		<tr>
     <td><a href="/clients/nitclient.html">NitClient</a></td>
-    <td>HACKED</td>
 		<td><kbd>p</kbd></td>
 		</tr>
 	<tr>
     <td><a href="/clients/codercraft.html">Codercraft</a></td>
-    <td>HACKED</td>
 		<td><kbd>ALT</kbd></td>
   </tr>
 	<tr>
     <td class="isDisabled"><a href="" aria-disabled="true">Fuchsiax Client</a></td>
-    <td>HACKED</td>
 		<td><kbd></kbd></td>
   </tr>
 </table>

@@ -1,87 +1,59 @@
 <?php 
 $path = $_SERVER['DOCUMENT_ROOT'];
-include $path.'/system/logging.php';
+require_once($path.'/system/head.php');
+
 ?>
-<title>Redirecting...</title>
-<meta charset="UTF-8">
-	<meta name="title" content="Stellar | Eaglercraft Client Archive">
-  <meta name="description" content="This site is aimed to be a collection of every client for EaglerCraft.">
-  <meta name="keywords" content="Eaglercraft, paragram, eagler, hacks, hax, LAX1DUDE, FuchsiaX, ayuncraft, codercraft, Resent, Precision, minecraft, 1.5.2">
-  <meta name="author" content="paragram">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>GET RICKED LOSER 🤣</h1>
-   <p>You should be automatically redirected in <span id="seconds"></span> seconds.</p>
+<div class="row">
+  <div class="side">
+    <h2>Anti-Bot</h2>
+    <h5>What its for:</h5>
+		<p>I decided to implement it mainly because one of my friends decided to make a bot to spam requests to my account system :/</p>
+		<br>
+    <h3> Disclaimer: </h3>
+    <p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->disclaimer);
+		} ?></p>
+<link rel="stylesheet" href="/assets/LoginRegister.css">
+    <a href="/register.php"><button class="extrabuttons button">Register an Account</button></a>
+	<a href="/extras/socials.php"><button class="extrabuttons button">Use Our Social Login Button [WIP]</button></a>
+  </div>
+  <div class="main">
+<h2>Anti-Bot</h2>
+<center>
+		<style>img[id^="captcha-id"] {max-width:100%;}</style>
+	  <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+				<p><?php 
+if (isset($_POST['captcha_solution'])) {
+	$messages = array(
+	"success" => "<p style='color:green;'><strong>[Success!]</strong> Redirecting....</p>",
+	"failure" => "<p style='color:red;'><strong>[Failure]</strong> Text incorrect. Correct text was <u>" . $_SESSION['answer'] . "</u></p>");
+	if ($_SESSION['answer'] === $_POST['captcha_solution']) {
+		echo $messages['success'];
+		$_SESSION['notbot'] = "true";
+		echo "<script>window.location.replace('home.php')</script>";
+		exit();
+	} else {
+		echo $messages['failure'];
+	}
+} else {
+	echo "--Anti-Bot Challenge--";
+}
+?></p>
+			 <img src="/system/captcha.php" height="45" alt="CAPTCHA image" id="captcha-id-<?php echo array_rand(range(1, 5000)); ?>" />
+				<label>Please solve the anti-bot challenge to continue
+	  <input class="" type="text" name="captcha_solution" placeholder="Anti-Bot Code Here"/>
+		  <input class="button extrabuttons" type="submit" value="Check"/>
+	  </label></form>
+	</center>
   </div>
 </div>
-<style>
-body, html {
-    height: 100%;
-}
-
-/* The hero image */
-.hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif");
-
-  /* Set a specific height */
-  height: 90%;
-	
-
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-/* Place text in the middle of the image */
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-</style>
-<script>
-
-var seconds = 5;
-var foo;
-
-function redirect() {
-    document.location.href = '/home.php';
-}
-
-function updateSecs() {
-    document.getElementById("seconds").innerHTML = seconds;
-    seconds--;
-    if (seconds == -1) {
-        clearInterval(foo);
-        redirect();
-    }
-}
-
-function countdownTimer() {
-    foo = setInterval(function () {
-        updateSecs()
-    }, 1000);
-}
-
-countdownTimer();</script>
-
-
 <?php
-
 $visitors = file_get_contents($path.'/db/visitcount.txt');
 $visitors = $visitors+1;
 
 file_put_contents($path.'/db/visitcount.txt',$visitors);
-
-
-
-
-
 ?>
+
+<?php require_once($path.'/system/foot.php');  ?>
+

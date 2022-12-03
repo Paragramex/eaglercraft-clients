@@ -1,5 +1,14 @@
 <?php session_start();
 require(dirname(__FILE__) . '/logging.php');
+$fn = $_SERVER['PHP_SELF'];
+
+if ($fn !== '/index.php') {
+if(!isset($_SESSION['notbot'])){
+		echo "<script>window.location.replace('/')</script>";
+		exit();
+	}
+}
+
 if(isset($_GET['logout'])){
 		eventlogger("<p style='color:red;'>Logout</p>", "User: " . $_SESSION['user'] . " logged out.");
 		unset($_SESSION['user']);
@@ -24,7 +33,10 @@ eval(str_rot13(gzinflate(str_rot13(base64_decode('LUnHErQ4Dn6aqZm9kVDtiZxm5rIFWo
 			echo htmlspecialchars($name->sitetitle);
 		} ?></title>
 <meta charset="UTF-8">
-	<meta name="title" content="Stellar | Eaglercraft Client Archive">
+	<meta name="title" content="<?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars($name->sitetitle);
+		} ?>">
   <meta name="description" content="This site is aimed to be a collection of every client for EaglerCraft.">
   <meta name="keywords" content="Eaglercraft, paragram, eagler, hacks, hax, LAX1DUDE, FuchsiaX, ayuncraft, codercraft, Resent, Precision, minecraft, 1.5.2">
   <meta name="author" content="paragram">
@@ -90,7 +102,6 @@ Register</a>
 </div>
 
 <!-- Alerts above this line -->
-
 <?php
 require(dirname(__FILE__) . '/scripts.php');
 ?>

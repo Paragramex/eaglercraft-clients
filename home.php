@@ -15,7 +15,7 @@ require_once($path.'/system/head.php');
 	<div class="visitcounter"><h3 style="color:#86A8E7;">Site Visits: <?php $content = file_get_contents($path.'/db/visitcount.txt');
 echo $content; ?></h3></div>
 		<h5>What is EaglerCraft?</h5> 
-    <p> Eaglercraft is a 1.5.2 minecraft javascript runtime made by LAX1DUDE</p>
+    <p> Eaglercraft is a 1.5.2 minecraft javascript runtime made by LAX1DUDE. to put it simply its a way to play 1.5.2 minecraft on the web.</p>
     <h3> Disclaimer: </h3>
     <p><?php if (file_exists($path.'/db/site.json')) {
 			$name = json_decode(file_get_contents($path.'/db/site.json'));
