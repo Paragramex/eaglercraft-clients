@@ -7,9 +7,8 @@ $config = json_decode(file_get_contents($path.'/db/site.json'));
 $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path.'/system/head.php');
 require_once($path.'/admin/lib.php');
-if(!isset($_SESSION['user'])){
-	$_SESSION['pagetitle'] = "Home";
-		echo "<script>window.location.replace('home.php')</script>";
+if(!isset($_SESSION['admin'])){
+		echo "<script>window.location.replace($path'/home.php')</script>";
 		exit();
 	}
 	?>
